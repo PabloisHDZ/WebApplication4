@@ -1,0 +1,86 @@
+﻿@{
+    Layout = null; // Esto indica que no se utilizará un layout específico para esta página
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>DevExtreme Demo</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <!-- Referencias a scripts externos -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn3.devexpress.com/jslib/23.2.6/js/dx.all.js"></script>
+    <script src="https://unpkg.com/devextreme-aspnet-data@3.0.0/js/dx.aspnet.data.js"></script>
+    <script src="~/js/gene.js"></script>
+
+    <!-- Referencias a hojas de estilo externas y locales -->
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/23.2.6/css/dx.material.blue.light.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/gene.css" />
+</head>
+
+<body>
+    <!-- Barra de navegación -->
+    <nav>
+        <ul>
+            <li><a href="~/Home/gene">Generador de Datos</a></li>
+            <li><a href="~/Home/datos">Importación</a></li>
+            <li><a href="~/Home/conf">Configuración</a></li>
+        </ul>
+    </nav>
+    <!-- Contenedor del botón deslizable -->
+    <div class="switch-container">
+        <p class="switch-text">Botón Deslizable</p>
+        <div id="switch-container">
+        </div>
+    </div>
+
+    <!-- Contenedor de las celdas de texto -->
+    <div class="containera">
+        <div class="textbox-container">
+            <div class="textbox-title">Empleado</div>
+            <div id="empleado"></div>
+        </div>
+        <div class="textbox-container">
+            <div class="textbox-title">Vehículo</div>
+            <div id="veiculo"></div>
+        </div>
+        <div class="textbox-container">
+            <div class="textbox-title">Fecha</div>
+            <div id="fecha"></div>
+        </div>
+        <div class="textbox-container">
+            <div class="textbox-title">Ruta</div>
+            <div id="ruta"></div>
+        </div>
+        <!-- Nuevas celdas para pesos -->
+        <div class="textbox-container">
+            <div class="textbox-title">Material</div>
+            <input id="material" class="dx-texteditor">
+        </div>
+        <div class="textbox-container">
+            <div class="textbox-title">Peso Neto (Toneladas)</div>
+            <input id="peso-neto" class="dx-texteditor">
+        </div>
+        <div class="textbox-container">
+            <div class="textbox-title">Comentarios</div>
+            <input id="comentarios" class="dx-texteditor">
+        </div>
+    </div>
+
+    <!-- Contenedor del botón de históricos y tabla -->
+    <div class="demo-container">
+
+        <p>Datos insertados</p>
+        <button onclick="location.href='@Url.Action("his", "Home")'" class="historicos-btn">
+            Históricos
+        </button>
+
+        <div id="treeListContainer">
+            <!-- Contenido de la tabla o datos generados -->
+        </div>
+    </div>
+</body>
+</html>

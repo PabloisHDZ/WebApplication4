@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Login";
+    Layout = null; // Esto indica que no se utilizará un layout específico para esta página
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn3.devexpress.com/jslib/20.2.5/js/dx.all.js"></script>
+    <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/20.2.5/css/dx.light.css">
+    <link rel="stylesheet" type="text/css" href="~/css/index.css">
+</head>
+<body>
+    <div class="center-container">
+        <img src="~/images/smart.png" alt="Imagen Smart" style="max-width: 300px;">
+        <div class="container">
+            <form method="post" asp-controller="Authentication" asp-action="Login">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control email-input dx-textbox" id="username" name="username" placeholder="Ingrese usuario" aria-label="Usuario" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control password-input" id="password" name="password" placeholder="Ingrese contraseña" required>
+                </div>
+                <button type="submit" class="btn btn-primary dx-button">Login</button>
+            </form>
+            @if (!ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger" style="margin-top: 15px;">
+                    Invalid login attempt.
+                </div>
+            }
+        </div>
+        <div class="image-container">
+            <img src="~/images/beck.png" alt="Imagen de Beck" style="max-width: 100px;">
+            <img src="~/images/lasec.png" alt="Imagen de lasec" style="max-width: 100px;">
+        </div>
+    </div>
+</body>
+</html>

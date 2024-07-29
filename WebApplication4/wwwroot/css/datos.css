@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f7f7f7;
+}
+
+.hidden {
+    display: none;
+}
+
+.dx-fileuploader-button {
+    margin-left: 1px; /* Mueve el botón de archivos a la derecha */
+}
+
+
+
+/* Cambiar el color de fondo del botón del File Uploader */
+.dx-fileuploader-button {
+    background-color: #ffffff; /* Color azul */
+    color: rgb(0, 0, 0); /* Texto en blanco para mejor contraste */
+    border-color: #007bff; /* Color del borde */
+}
+
+    .dx-fileuploader-button:hover,
+    .dx-fileuploader-button:focus {
+        background-color: #0b2a4ab2; /* Color azul más oscuro al pasar o enfocar */
+        border-color: #ffffff; /* Color del borde al pasar o enfocar */
+    }
+
+nav {
+    background-color: #0B2A4A;
+    padding: 10px; /* Controla el espacio interno alrededor del contenido */
+    border-radius: 15px; /* Redondea las esquinas del elemento */
+    margin-bottom: 20px; /* Espacio hacia abajo entre elementos */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para efecto visual */
+    width: 99%; /* Ancho completo dentro del contenedor padre */
+}
+
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+            nav ul li a {
+                color: #fff;
+                text-decoration: none;
+                font-weight: bold;
+                transition: color 0.3s;
+            }
+
+                nav ul li a:hover {
+                    color: #ccc;
+                                   
+                }

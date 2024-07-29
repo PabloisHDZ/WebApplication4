@@ -1,0 +1,91 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    /* Establece el fondo */
+    background-image: url('../images/fon.svg'); /* Ruta relativa del archivo SVG */
+    background-size: cover; /* Ajusta el tamaño para cubrir toda la pantalla */
+    background-repeat: no-repeat; /* Evita la repetición del fondo */
+}
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 800px;
+    width: 100%;
+    padding: 20px;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.8); /* Fondo blanco semi-transparente */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    margin-top: 20px; /* Espacio superior */
+}
+
+.input-label {
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.email-input, .password-input {
+    width: calc(100% - 40px); /* Tamaño ajustado para que las celdas sean del mismo tamaño */
+    margin-bottom: 10px;
+    text-align: center; /* Centra el texto en los campos de entrada */
+    padding: 14px 16px; /* Relleno interno ajustado */
+    border: 2px solid #ccc; /* Borde delgado */
+    border-radius: 6px; /* Borde redondeado */
+    background-color: #ffffff; /* Fondo blanco */
+    font-size: 16px; /* Tamaño de fuente */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+}
+
+    .email-input:focus, .password-input:focus {
+        outline: none; /* Quita el contorno al estar enfocado */
+        border-color: #007bff; /* Borde azul al estar enfocado */
+        box-shadow: 0 0 12px rgba(0, 123, 255, 0.5); /* Sombra azul al estar enfocado */
+    }
+
+.dx-button {
+    width: 100%;
+    margin-top: 20px;
+    text-align: center; /* Centra el texto en el botón */
+    background-color: #0056b3; /* Color de fondo azul marino */
+    color: white; /* Color de texto blanco */
+    border: none; /* Sin borde */
+    padding: 14px 0; /* Relleno vertical ajustado */
+    border-radius: 6px; /* Borde */
+    font-size: 16px; /* Tamaño de fuente */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+    transition: background-color 0.3s ease;
+}
+
+    .dx-button:hover {
+        background-color: #004a8e; /* Color de fondo azul marino más oscuro al pasar el cursor */
+    }
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+    .image-container img {
+        max-width: 200px; /* Ancho máximo de la imagen */
+        height: auto; /* Altura automática para mantener la proporción */
+        border-radius: 8px; /* Borde redondeado */
+        margin-bottom: 10px; /* Espacio inferior */
+    }

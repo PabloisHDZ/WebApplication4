@@ -1,0 +1,54 @@
+﻿@{
+    Layout = null; // Esto indica que no se utilizará un layout específico para esta página
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Configuracion</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <!-- Referencias a scripts externos -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn3.devexpress.com/jslib/23.2.6/js/dx.all.js"></script>
+    <script src="https://unpkg.com/devextreme-aspnet-data@3.0.0/js/dx.aspnet.dgene.js"></script>
+    <script src="https://unpkg.com/devextreme-aspnet-data@3.0.0/js/dx.aspnet.data.js"></script>
+    <script src="~/js/conf.js"></script> <!-- Aquí es donde se carga el archivo conf.js desde la carpeta js -->
+    <!-- Referencias a hojas de estilo externas y locales -->
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/23.2.6/css/dx.material.blue.light.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/conf.css" /> <!-- Aquí se carga el archivo conf.css desde la carpeta css -->
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav>
+        <ul>
+            <li><a href="~/Home/gene">Generador de Datos</a></li>
+            <li><a href="~/Home/datos">Importación</a></li>
+            <li><a href="~/Home/conf">Configuración</a></li>
+        </ul>
+    </nav>
+
+    <div class="demo-container">
+        <!-- Configuración del Bot -->
+        <div class="section">
+            <div class="buttons-column">
+                <div class="column-header">Configuración del Bot</div>
+                <div class="button-container">
+                    <div class="text-cell">
+                        <span class="cell-title">Tonelaje:</span>
+                        <div id="text3"></div>
+                    </div>
+                    <div class="text-cell">
+                        <span class="cell-title">Tiempo:</span>
+                        <div id="text4"></div>
+                    </div>
+                </div>
+                <div id="button2"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

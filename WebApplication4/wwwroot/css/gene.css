@@ -1,0 +1,114 @@
+/* Estilos para todo el cuerpo del documento */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos para el contenedor de los elementos */
+.containera {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Cuatro columnas iguales */
+    gap: 20px; /* Espacio entre las celdas */
+}
+
+    /* Establecer las áreas de la cuadrícula para las dos filas */
+    .containera > * {
+        padding: 10px;
+        border: 3px solid #ccc;
+    }
+
+.textbox-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos específicos para los elementos */
+.empleado, .vehiculo, .fecha, .ruta, #material, #peso-neto, #comentarios {
+    font-size: 14px;
+    padding: 8px;
+    text-align: left;
+    width: 100%; /* Ajusta el ancho al 100% del contenedor */
+    box-sizing: border-box; /* Incluye el padding en el tamaño total */
+}
+
+/* Media query para ajustar estilos en pantallas más pequeñas */
+@media (max-width: 768px) {
+    .containera {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas pequeñas */
+        gap: 10px;
+    }
+
+    .empleado, .vehiculo, .fecha, .ruta, #material, #peso-neto, #comentarios {
+        font-size: 12px; /* Reducir tamaño de fuente para pantallas pequeñas */
+        padding: 6px; /* Reducir espaciado interno para pantallas pequeñas */
+    }
+}
+
+/* Estilos para el botón hsitorico */
+.historicos-btn {
+    background-color: rgba(46, 182, 46, 0.774);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+    position: absolute; /* Posición absoluta en relación con el cuerpo */
+    top: 320px; /* Distancia desde la parte superior */
+    right: 20px; /* Distancia desde la derecha */
+}
+
+    .historicos-btn:hover {
+        background-color: #218838; /* Cambio de color al pasar el ratón */
+    }
+
+/* Estilos del botón deslizable */
+.switch-container {
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.switch-text {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Estilos para la barra de navegación */
+nav {
+    background-color: #0B2A4A;
+    padding: 10px; /* Controla el espacio interno alrededor del contenido */
+    border-radius: 10px; /* Redondea las esquinas del elemento */
+    margin-bottom: 20px; /* Espacio hacia abajo entre elementos */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para efecto visual */
+    width: 98.5%; /* Ancho completo dentro del contenedor padre */
+}
+
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+        nav ul li {
+            margin-right: 15px; /* Espacio entre elementos de navegación */
+        }
+
+            nav ul li a {
+                color: #fff;
+                text-decoration: none;
+                font-weight: bold;
+                transition: color 0.3s;
+                padding: 8px 12px; /* Espacio interno del enlace */
+            }
+
+                nav ul li a:hover {
+                      color:   #ccc;
+                }

@@ -1,0 +1,40 @@
+﻿@{
+    Layout = null; // Esto evita que se utilice un layout específico, si no se desea.
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>DevExtreme Demo</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/devextreme-aspnet-data@3.0.0/js/dx.aspnet.dgene.js"></script>
+    <script src="https://cdn3.devexpress.com/jslib/23.2.6/js/dx.all.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/23.2.6/css/dx.material.blue.light.css" />
+    <script src="https://unpkg.com/devextreme-aspnet-data@3.0.0/js/dx.aspnet.data.js"></script>
+    <script src=~/js/datos.js datos.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/css/datos.css">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="~/Home/gene">Generador de Datos</a></li>
+            <li><a href="~/Home/datos">Importación</a></li>
+            <li><a href="~/Home/conf">Configuración</a></li>
+        </ul>
+    </nav>
+
+    <div class="demo-container" id="calendar-demo">
+        <div class="calendar-container">
+            <div id="calendar"></div>
+        </div>
+    </div>
+    <div id="file-uploader-container"></div>
+    <div id="accept-button"></div>
+
+    <div id="export"></div>
+</body>
+</html>

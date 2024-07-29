@@ -1,0 +1,7 @@
+/* ajustar el ancho de las cabeceras de columna */
+#gridContainer .dx-datagrid-headers .dx-datagrid-text-content {
+    white-space: normal; /* Permitir el ajuste de línea */
+    overflow: visible; /* Permitir que el contenido desborde si es necesario */
+    text-overflow: unset; /* No truncar el texto */
+    min-width: 00px; /* Ancho mínimo de las cabeceras */
+}
