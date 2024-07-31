@@ -16,7 +16,7 @@ builder.Services.AddDbContext<dbboot>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Registrar el job de sincronización de datos
-builder.Services.AddHostedService<DataSyncJob>();
+//builder.Services.AddHostedService<DataSyncJob>();
 
 // Agregar logging
 builder.Logging.ClearProviders();
