@@ -1,77 +1,38 @@
 ﻿using System;
-using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.DependencyInjection;
 using WebApplication4.Data;
 using WebApplication4.Models;
-using System.Net.Http;
-using Newtonsoft.Json.Linq;
 
-public class DataSyncJob : IHostedService, IDisposable
+public class DataGeneratorJob
 {
-    private readonly IServiceProvider _serviceProvider;
-    private Timer _timer;
-    private readonly HttpClient _httpClient;
-    private readonly Random _random;
+    private readonly dbboot _context;
+    private readonly Random _random = new Random();
 
-    public DataSyncJob(IServiceProvider serviceProvider)
+    public DataGeneratorJob(dbboot context)
     {
-        _serviceProvider = serviceProvider;
-        _httpClient = new HttpClient();
-        _random = new Random();
+        _context = context;
     }
 
-    public Task StartAsync(CancellationToken cancellationToken)
+    public async Task GenerateDataAsync()
     {
-        _timer = new Timer(SyncData, null, TimeSpan.Zero, TimeSpan.FromMinutes(10));
-        return Task.CompletedTask;
-    }
+        // Generar datos aleatorios
+        var pesoBruto = 100m; // Peso base
+        var variacion = 0.05m + (decimal)(_random.NextDouble() * 0.20); // Variación entre 5% y 25%
+        var pesoNeto = pesoBruto * (1 + variacion);
 
-    private async void SyncData(object state)
-    {
-        using (var scope = _serviceProvider.CreateScope())
+        var acarreo = new Acarreo
         {
-            var context = scope.ServiceProvider.GetRequiredService<dbboot>();
+            VehiculoID = 1, // Ajusta según los datos reales
+            OperadorID = 1, // Ajusta según los datos reales
+            RutaID = 1, // Ajusta según los datos reales
+            Toneladas = pesoNeto,
+            Comentarios = "Comentario aleatorio",
+            MaterialID = 1, // Ajusta según los datos reales
+        };
 
-            // Lógica para consultar la API y obtener datos
-            var response = await _httpClient.GetAsync("https://demo-acarreos.smartflow.com.mx/service/haulages/api/v2/manualhaulages/manual/add"); // API de registro de acarreos
-            response.EnsureSuccessStatusCode();
-
-            var responseData = await response.Content.ReadAsStringAsync();
-            var jsonData = JArray.Parse(responseData);
-
-            foreach (var item in jsonData)
-            {
-                var pesoBruto = 100m; // Peso base
-                var variacion = 0.05m + (decimal)(_random.NextDouble() * 0.20); // Variación entre 5% y 25%
-                var pesoNeto = pesoBruto * (1 + variacion);
-
-                var acarreo = new Acarreo
-                {
-                    VehiculoID = item["VehiculoID"].Value<int>(), // Ajusta según los datos reales
-                    OperadorID = item["OperadorID"].Value<int>(), // Ajusta según los datos reales
-                    RutaID = item["RutaID"].Value<int>(), // Ajusta según los datos reales
-                    Toneladas = pesoNeto,
-                    Comentarios = item["Comentarios"].Value<string>(),
-                    MaterialID = item["MaterialID"].Value<int>(), // Ajusta según los datos reales
-                };
-
-                context.Acarreos.Add(acarreo);
-            }
-
-            await context.SaveChangesAsync();
-        }
+        // Guardar en la base de datos
+        _context.Acarreos.Add(acarreo);
+        await _context.SaveChangesAsync();
     }
 
-    public Task StopAsync(CancellationToken cancellationToken)
-    {
-        _timer?.Change(Timeout.Infinite, 0);
-        return Task.CompletedTask;
-    }
-
-    public void Dispose()
-    {
-        _timer?.Dispose();
-    }
 }
