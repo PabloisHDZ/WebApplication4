@@ -34,14 +34,14 @@ namespace WebApplication4.Controllers
 
             foreach (var model in historicoList)
             {
-                bool vehiculoExiste = await _context.Vehiculos.AnyAsync(v => v.Numero_economico == model.Vehiculo);
-                bool operadorExiste = await _context.Operadores.AnyAsync(o => o.Fullname.Contains(model.Operador));
-                bool sitioCargaExiste = await _context.Rutas.AnyAsync(s => s.Sito_De_Carga == model.Sitio_de_carga);
-                bool sitioDescargaExiste = await _context.Rutas.AnyAsync(s => s.Sito_De_Descarga == model.Sitio_de_descarga);
-                bool toneladasExiste = await _context.Historicos.AnyAsync(s => s.Toneladas == model.Toneladas);
-                bool materialExiste = await _context.Materiales.AnyAsync(m => m.Descripcion == model.Material);
+                bool vehiculoExiste = await _context.Vehiculos.AnyAsync(v => v.EconomicNumber == model.Vehicle);
+                bool operadorExiste = await _context.Operadores.AnyAsync(o => o.FullName == model.FullName);
+                bool sitioCargaExiste = await _context.Sitios.AnyAsync(s => s.Name == model.LoadPointName);
+                bool sitioDescargaExiste = await _context.Sitios.AnyAsync(s => s.Name == model.UnLoadPointName);
+                bool toneladasCorrectas = model.Weight > 0;
+                bool materialExiste = await _context.Materiales.AnyAsync(m => m.Name == model.Name);
 
-                if (vehiculoExiste && operadorExiste && sitioCargaExiste && sitioDescargaExiste && materialExiste)
+                if (vehiculoExiste && operadorExiste && sitioCargaExiste && sitioDescargaExiste && toneladasCorrectas && materialExiste)
                 {
                     validHistoricos.Add(model);
                 }
@@ -49,25 +49,25 @@ namespace WebApplication4.Controllers
                 {
                     var errores = new List<string>();
 
-                    if (!vehiculoExiste) errores.Add($"Vehiculo '{model.Vehiculo}' no existe.");
-                    if (!operadorExiste) errores.Add($"Operador '{model.Operador}' no existe.");
-                    if (!sitioCargaExiste) errores.Add($"Sitio de carga '{model.Sitio_de_carga}' no existe.");
-                    if (!sitioDescargaExiste) errores.Add($"Sitio de descarga '{model.Sitio_de_descarga}' no existe.");
-                    if (!toneladasExiste) errores.Add($"Toneladas '{model.Toneladas}' no existe.");
-                    if (!materialExiste) errores.Add($"Material '{model.Material}' no existe.");
+                    if (!vehiculoExiste) errores.Add($"Vehiculo '{model.Vehicle}' no existe.");
+                    if (!operadorExiste) errores.Add($"Operador '{model.FullName}' no existe.");
+                    if (!sitioCargaExiste) errores.Add($"Sitio de carga '{model.LoadPointName}' no existe.");
+                    if (!sitioDescargaExiste) errores.Add($"Sitio de descarga '{model.UnLoadPointName}' no existe.");
+                    if (!toneladasCorrectas) errores.Add($"Toneladas '{model.Weight}' no es válido.");
+                    if (!materialExiste) errores.Add($"Material '{model.Name}' no existe.");
 
-                    erroresConsolidados.AddRange(errores); 
+                    erroresConsolidados.AddRange(errores);
 
                     errorList.Add(new HisError
                     {
-                        Vehiculo = model.Vehiculo,
-                        Operador = model.Operador,
-                        Sitio_de_carga = model.Sitio_de_carga,
-                        Sitio_de_descarga = model.Sitio_de_descarga,
-                        Toneladas = model.Toneladas,
-                        Material = model.Material,
-                        Fecha_de_acarreos = model.Fecha_de_acarreos,
-                        Comentarios = model.Comentarios,
+                        Vehicle = model.Vehicle,
+                        FullName = model.FullName,
+                        LoadPointName = model.LoadPointName,
+                        UnLoadPointName = model.UnLoadPointName,
+                        Weight = model.Weight,
+                        Name = model.Name,
+                        DateOfCarries = model.DateOfCarries,
+                        Comments = model.Comments,
                         ErrorMessage = string.Join("; ", errores)
                     });
                 }
@@ -82,5 +82,4 @@ namespace WebApplication4.Controllers
             return Ok(new { Message = "Data import process completed.", Errors = errorList, ConsolidatedErrors = erroresConsolidados });
         }
     }
-
 }

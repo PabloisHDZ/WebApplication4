@@ -5,8 +5,8 @@ namespace WebApplication4.Models
     public class Material
     {
         [Key]
-        public int MaterialID { get; set; }
-        public string Descripcion { get; set; }
+        public int MaterialTypeId { get; set; }
+        public string Name { get; set; }
     }
 }
 

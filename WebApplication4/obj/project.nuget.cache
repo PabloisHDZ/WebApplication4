@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ItAIsFXLygY=",
+  "dgSpecHash": "kemeHeeMdXg=",
   "success": true,
   "projectFilePath": "C:\\Users\\Pablo\\source\\repos\\WebApplication4\\WebApplication4\\WebApplication4.csproj",
   "expectedPackageFiles": [
@@ -8,7 +8,7 @@
     "C:\\Users\\Pablo\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
     "C:\\Users\\Pablo\\.nuget\\packages\\closedxml\\0.102.3\\closedxml.0.102.3.nupkg.sha512",
     "C:\\Users\\Pablo\\.nuget\\packages\\documentformat.openxml\\2.16.0\\documentformat.openxml.2.16.0.nupkg.sha512",
-    "C:\\Users\\Pablo\\.nuget\\packages\\epplus\\7.2.1\\epplus.7.2.1.nupkg.sha512",
+    "C:\\Users\\Pablo\\.nuget\\packages\\epplus\\7.2.2\\epplus.7.2.2.nupkg.sha512",
     "C:\\Users\\Pablo\\.nuget\\packages\\epplus.interfaces\\6.1.1\\epplus.interfaces.6.1.1.nupkg.sha512",
     "C:\\Users\\Pablo\\.nuget\\packages\\epplus.system.drawing\\6.1.1\\epplus.system.drawing.6.1.1.nupkg.sha512",
     "C:\\Users\\Pablo\\.nuget\\packages\\excelnumberformat\\1.1.0\\excelnumberformat.1.1.0.nupkg.sha512",

@@ -1,5 +1,4 @@
-﻿// Controllers/AuthenticationController.cs
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
 using WebApplication4.Models; // Asegúrate de tener el namespace correcto
@@ -7,10 +6,12 @@ using WebApplication4.Models; // Asegúrate de tener el namespace correcto
 public class AuthenticationController : Controller
 {
     private readonly AuthenticationService _authenticationService;
+    private readonly TokenService _tokenService;
 
-    public AuthenticationController(AuthenticationService authenticationService)
+    public AuthenticationController(AuthenticationService authenticationService, TokenService tokenService)
     {
         _authenticationService = authenticationService;
+        _tokenService = tokenService;
     }
 
     [HttpGet]
@@ -23,12 +24,15 @@ public class AuthenticationController : Controller
     public async Task<IActionResult> Login(string username, string password)
     {
         var tokenResponse = await _authenticationService.AuthenticateAsync(username, password);
-        Console.WriteLine($"usernane:");
+
         if (tokenResponse == null || string.IsNullOrEmpty(tokenResponse.access_token))
         {
             ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-            return View();
+            return RedirectToAction("Index", "Home"); // Redirigir a una vista de error
         }
+
+        // Guardar el token en el TokenService
+        _tokenService.SetToken(tokenResponse.access_token);
 
         // Guardar el token y el tipo de token en cookies
         HttpContext.Response.Cookies.Append("AuthToken", tokenResponse.access_token, new CookieOptions

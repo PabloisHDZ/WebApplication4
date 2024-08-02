@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.EntityFrameworkCore;
 using WebApplication4.Data;
 using Microsoft.Extensions.Logging;
+using WebApplication4; // Asegúrate de incluir el espacio de nombres correcto para DataSyncJob
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,12 +12,16 @@ builder.Services.AddControllersWithViews();
 // Registrar el servicio de autenticación
 builder.Services.AddScoped<AuthenticationService>();
 
+
+// Registrar el servicio de token
+builder.Services.AddSingleton<TokenService>();
+
 // Agregar DbContext
 builder.Services.AddDbContext<dbboot>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Registrar el job de sincronización de datos
-//builder.Services.AddHostedService<DataSyncJob>();
+builder.Services.AddHostedService<DataSyncJob>();
 
 // Agregar logging
 builder.Logging.ClearProviders();

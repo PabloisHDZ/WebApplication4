@@ -135,6 +135,9 @@ function importarArchivo() {
             //    }
             //});
 
+
+
+
             //$.ajax({
             //    url: '/service/haulages/api/v2/generalsettings/vehicles/add',
             //    data: JSON.stringify(vehiclesIds),
@@ -230,6 +233,8 @@ function importarArchivo() {
             //    companies_names = []
             //    return { data: [] }
             //})
+
+
 
             //$.ajax({
             //    url: '/tu/url',

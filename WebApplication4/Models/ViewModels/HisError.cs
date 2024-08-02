@@ -4,14 +4,15 @@ namespace WebApplication4.Models.ViewModels
 {
     public class HisError
     {
-        public string Vehiculo { get; set; }
-        public string Operador { get; set; }
-        public string Sitio_de_carga { get; set; }
-        public string Sitio_de_descarga { get; set; }
-        public decimal Toneladas { get; set; }
-        public string Material { get; set; }
-        public DateTime Fecha_de_acarreos { get; set; }
-        public string Comentarios { get; set; }
+        [ Key]
+        public string Vehicle { get; set; }
+        public string FullName { get; set; }
+        public string LoadPointName { get; set; }
+        public string UnLoadPointName { get; set; }
+        public decimal Weight { get; set; }
+        public string Name { get; set; }
+        public string DateOfCarries { get; set; }
+        public string Comments { get; set; }
         public string ErrorMessage { get; set; }
     }
 }

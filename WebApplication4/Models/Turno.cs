@@ -5,9 +5,10 @@ namespace WebApplication4.Models
     public class Turno
     {
         [Key]
-        public int TurnoID { get; set; }
-        public string Nombre { get; set; }
-        public TimeOnly HoraInicio { get; set; }
-        public TimeOnly HoraFin { get; set; }
+        public int WorkShiftId { get; set; }
+        public string Description { get; set; }
+        public string Enabled { get; set; }
+        public TimeSpan StartTime { get; set; }
+        public TimeSpan EndTime { get; set; }
     }
 }

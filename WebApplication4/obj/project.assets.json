@@ -84,7 +84,7 @@
           }
         }
       },
-      "EPPlus/7.2.1": {
+      "EPPlus/7.2.2": {
         "type": "package",
         "dependencies": {
           "EPPlus.System.Drawing": "6.1.1",
@@ -3201,15 +3201,15 @@
         "lib/netstandard2.0/DocumentFormat.OpenXml.xml"
       ]
     },
-    "EPPlus/7.2.1": {
-      "sha512": "2a4tfkqpyrLQHpT7A2ShJBDRcD85exT15YK+9PtvlqIOi7P7fF8myqhlojdinjNGhARSAQog7sLsm0rW1oh21Q==",
+    "EPPlus/7.2.2": {
+      "sha512": "gSbODd3UQroSqQ9abC35DjThwdWj7q4Mc8jLJT224CF88112QKDIoUkW7c7iiv4MzbMoWn+Spvu4A1Jszsym6Q==",
       "type": "package",
-      "path": "epplus/7.2.1",
+      "path": "epplus/7.2.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "EPPlusLogo.png",
-        "epplus.7.2.1.nupkg.sha512",
+        "epplus.7.2.2.nupkg.sha512",
         "epplus.nuspec",
         "lib/net35/EPPlus.dll",
         "lib/net35/EPPlus.xml",
@@ -9418,7 +9418,7 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "ClosedXML >= 0.102.3",
-      "EPPlus >= 7.2.1",
+      "EPPlus >= 7.2.2",
       "Hangfire >= 1.8.14",
       "Hangfire.AspNetCore >= 1.8.14",
       "Microsoft.EntityFrameworkCore >= 8.0.7",
@@ -9484,7 +9484,7 @@
           },
           "EPPlus": {
             "target": "Package",
-            "version": "[7.2.1, )"
+            "version": "[7.2.2, )"
           },
           "Hangfire": {
             "target": "Package",

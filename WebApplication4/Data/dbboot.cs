@@ -3,10 +3,11 @@ using WebApplication4.Models;
 
 namespace WebApplication4.Data
 {
+    using Microsoft.EntityFrameworkCore;
+
     public class dbboot : DbContext
     {
-        public dbboot(DbContextOptions<dbboot> options)
-            : base(options)
+        public dbboot(DbContextOptions<dbboot> options) : base(options)
         {
         }
 
@@ -20,83 +21,61 @@ namespace WebApplication4.Data
         public DbSet<Compañia> Compañias { get; set; }
         public DbSet<Material> Materiales { get; set; }
         public DbSet<ProgramacionDeRegistro> ProgramacionesDeRegistro { get; set; }
+        public DbSet<Sitio> Sitios { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Vehiculo>()
-                .Property(v => v.Capacidad)
-                .HasColumnType("decimal(18,2)");
-
-            modelBuilder.Entity<Ruta>()
-                .Property(r => r.Distancia)
-                .HasColumnType("decimal(18,2)");
-
-            modelBuilder.Entity<Acarreo>()
-                .Property(a => a.Toneladas)
-                .HasColumnType("decimal(18,2)");
-
             // Relaciones existentes
             modelBuilder.Entity<Vehiculo>()
                 .HasOne(v => v.Compañia)
                 .WithMany()
-                .HasForeignKey(v => v.CompañiaID)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            modelBuilder.Entity<Operador>()
-                .HasOne(o => o.Turno)
-                .WithMany()
-                .HasForeignKey(o => o.TurnoID)
+                .HasForeignKey(v => v.CompanyId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Operador>()
                 .HasOne(o => o.Compañia)
                 .WithMany()
-                .HasForeignKey(o => o.CompañiaID)
+                .HasForeignKey(o => o.CompanyId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Acarreo>()
                 .HasOne(a => a.Vehiculo)
                 .WithMany()
-                .HasForeignKey(a => a.VehiculoID)
+                .HasForeignKey(a => a.VehicleId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Acarreo>()
                 .HasOne(a => a.Operador)
                 .WithMany()
-                .HasForeignKey(a => a.OperadorID)
+                .HasForeignKey(a => a.EmployeeId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Acarreo>()
                 .HasOne(a => a.Ruta)
                 .WithMany()
-                .HasForeignKey(a => a.RutaID)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            modelBuilder.Entity<Ruta>()
-                .HasOne(r => r.Material)
-                .WithMany()
-                .HasForeignKey(r => r.MaterialID)
+                .HasForeignKey(a => a.HaulageSiteId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Acarreo>()
                 .HasOne(a => a.Material)
                 .WithMany()
-                .HasForeignKey(a => a.MaterialID)
+                .HasForeignKey(a => a.MaterialTypeId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<ProgramacionDeRegistro>()
                 .HasOne(p => p.Acarreo)
-                .WithMany()
-                .HasForeignKey(p => p.AcarreoID)
+                .WithMany(a => a.ProgramacionesDeRegistro)
+                .HasForeignKey(p => p.CarryId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<ProgramacionDeRegistro>()
                 .HasOne(p => p.RegistroDeToken)
                 .WithMany()
-                .HasForeignKey(p => p.UserID)
+                .HasForeignKey(p => p.EmployeeId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }
+
 }
