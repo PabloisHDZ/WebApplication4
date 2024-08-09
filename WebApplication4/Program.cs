@@ -2,16 +2,18 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.EntityFrameworkCore;
 using WebApplication4.Data;
 using Microsoft.Extensions.Logging;
-using WebApplication4; // Asegúrate de incluir el espacio de nombres correcto para DataSyncJob
+using WebApplication4.Services; // Asegúrate de que este espacio de nombres exista
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Agregar servicios al contenedor.
 builder.Services.AddControllersWithViews();
 
+// Registrar el servicio de HTTP Client
+builder.Services.AddHttpClient();
+
 // Registrar el servicio de autenticación
 builder.Services.AddScoped<AuthenticationService>();
-
 
 // Registrar el servicio de token
 builder.Services.AddSingleton<TokenService>();
@@ -39,7 +41,9 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
 app.UseRouting();
+
 app.UseAuthentication();
 app.UseAuthorization();
 

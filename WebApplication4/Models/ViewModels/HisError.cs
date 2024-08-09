@@ -5,14 +5,16 @@ namespace WebApplication4.Models.ViewModels
     public class HisError
     {
         [ Key]
-        public string Vehicle { get; set; }
-        public string FullName { get; set; }
-        public string LoadPointName { get; set; }
-        public string UnLoadPointName { get; set; }
+        public int HistoricId { get; set; }
+        public int TokenRegistryId { get; set; }
+        public int VehicleId { get; set; }
+        public int EmployeeId { get; set; }
+        public int loadPointId { get; set; }
+        public int unLoadPointId { get; set; }
         public decimal Weight { get; set; }
-        public string Name { get; set; }
-        public string DateOfCarries { get; set; }
-        public string Comments { get; set; }
+        public int materialTypeId { get; set; }
+        public string Dateofcarries { get; set; }
+        public int WorkShiftId { get; set; }
         public string ErrorMessage { get; set; }
     }
 }

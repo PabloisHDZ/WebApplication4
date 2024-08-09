@@ -9,19 +9,19 @@ namespace WebApplication4.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class AcarreoController : ControllerBase
+    public class HaulagesController : ControllerBase
     {
         private readonly dbboot _context;
 
-        public AcarreoController(dbboot context)
+        public HaulagesController(dbboot context)
         {
             _context = context;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Acarreo>>> GetAcarreos()
+        public async Task<ActionResult<IEnumerable<Haulage>>> GetHaulages()
         {
-            return await _context.Acarreos.ToListAsync();
+            return await _context.Haulages.ToListAsync();
         }
     }
 }
