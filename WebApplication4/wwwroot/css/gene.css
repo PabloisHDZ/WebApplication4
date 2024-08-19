@@ -46,7 +46,7 @@ body {
     }
 }
 
-/* Estilos para el botón hsitorico */
+/* Estilos para el botón históricos */
 .historicos-btn {
     background-color: rgba(46, 182, 46, 0.774);
     color: white;
@@ -56,8 +56,8 @@ body {
     border-radius: 5px;
     text-decoration: none;
     position: absolute; /* Posición absoluta en relación con el cuerpo */
-    top: 320px; /* Distancia desde la parte superior */
-    right: 20px; /* Distancia desde la derecha */
+    top: 170px; /* Distancia desde la parte superior */
+    right: 50px; /* Distancia desde la derecha */
 }
 
     .historicos-btn:hover {
@@ -66,18 +66,21 @@ body {
 
 /* Estilos del botón deslizable */
 .switch-container {
+    position: absolute;
+    top: 150px; /* altura del boton */
+    right: 200px; /* Ajusta este valor según sea necesario para la posición horizontal */
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     background-color: #f0f0f0;
-    padding: 10px;
-    border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* Texto dentro del botón deslizable */
 .switch-text {
     margin-bottom: 10px;
     font-weight: bold;
 }
+
 
 /* Estilos para la barra de navegación */
 nav {
@@ -110,5 +113,5 @@ nav {
             }
 
                 nav ul li a:hover {
-                      color:   #ccc;
+                    color: #ccc;
                 }

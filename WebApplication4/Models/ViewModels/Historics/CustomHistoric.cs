@@ -1,10 +1,9 @@
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebApplication4.Models.ViewModels
+namespace WebApplication4.Models.ViewModels.Historics
 {
-    public class HisError
+    public class CustomHistoric
     {
-        [ Key]
         public int HistoricId { get; set; }
         public int TokenRegistryId { get; set; }
         public string vehicle { get; set; } // Este debe ser el EconomicNumber del Vehicle
@@ -15,6 +14,12 @@ namespace WebApplication4.Models.ViewModels
         public int materialTypeId { get; set; }
         public string Dateofcarries { get; set; }
         public int WorkShiftId { get; set; }
-        public string ErrorMessage { get; set; }
+
+        public virtual TokenRegistry TokenRegistry { get; set; }
+        public virtual Vehicle VehicleNavigation { get; set; }
+        public virtual Employee Employee { get; set; }
+        public virtual Route HaulagePath { get; set; }
+        public virtual Material MaterialType { get; set; }
+        public virtual Shift WorkShift { get; set; }
     }
 }

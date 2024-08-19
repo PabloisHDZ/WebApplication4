@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>DevExtreme Demo</title>
+    <title>Historico Demo</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -29,13 +29,14 @@
     <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/23.2.6/css/dx.material.blue.light.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/devextreme/dist/css/dx.light.css">
 
-    <link rel="stylesheet" type="text/css" href="~/css/his.css"> <!-- Archivo CSS personalizado -->
+    <link rel="stylesheet" type="text/css" href="~/css/his.css"> <!-- Archivo CSS -->
+
 
 </head>
 <body class="dx-viewport">
     <div class="demo-container">
         <!-- Botón "Regresar" -->
-        <button onclick="location.href='@Url.Action("gene", "home" , null)'"
+        <button onclick="location.href='@Url.Action("gene", "home")'"
                 style="background-color: rgba(46, 182, 46, 0.774); color: white; padding: 10px 20px; border: none; cursor: pointer;">
             Regresar
         </button>
@@ -49,18 +50,8 @@
         <div id="gridContainer"></div>
     </div>
 
-    <div>
-        <form method="post" enctype="multipart/form-data" class="width-100 margin-bottom-10">
-            <div class="input-file-container">
-                <input type="file" name="fileTest" value="file" id="fileTest" required accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
-                <label tabindex="0" for="my-file"> importar </label>
-            </div>
-        </form>
-    </div>
+  
 
-    <div>
-        <button type="submit" id="boton"><span> guardar </span></button>
-    </div>
 
     <script src="~/js/his.js"></script>
 </body>

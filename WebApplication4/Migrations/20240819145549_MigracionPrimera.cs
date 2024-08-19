@@ -51,7 +51,7 @@ namespace WebApplication4.Migrations
                     loadPointName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     timeInHour = table.Column<TimeSpan>(type: "time", nullable: false),
                     unLoadPointId = table.Column<int>(type: "int", nullable: false),
-                    unloadPointName = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    unLoadPointName = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -64,10 +64,12 @@ namespace WebApplication4.Migrations
                 {
                     WorkShiftId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    ShiftId = table.Column<int>(type: "int", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Enabled = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     StartTime = table.Column<TimeSpan>(type: "time", nullable: false),
-                    EndTime = table.Column<TimeSpan>(type: "time", nullable: false)
+                    EndTime = table.Column<TimeSpan>(type: "time", nullable: false),
+                    OperationTime = table.Column<TimeSpan>(type: "time", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -90,6 +92,19 @@ namespace WebApplication4.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "VehicleType",
+                columns: table => new
+                {
+                    VehicleTypeId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_VehicleType", x => x.VehicleTypeId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Employees",
                 columns: table => new
                 {
@@ -109,8 +124,7 @@ namespace WebApplication4.Migrations
                         name: "FK_Employees_Companies_CompanyId",
                         column: x => x.CompanyId,
                         principalTable: "Companies",
-                        principalColumn: "CompanyId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "CompanyId");
                 });
 
             migrationBuilder.CreateTable(
@@ -126,7 +140,8 @@ namespace WebApplication4.Migrations
                     EmptyWeight = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     FuelTankCapacity = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Weight = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    VehicleTypeId = table.Column<int>(type: "int", nullable: false)
+                    VehicleTypeId = table.Column<int>(type: "int", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -135,52 +150,61 @@ namespace WebApplication4.Migrations
                         name: "FK_Vehicles_Companies_CompanyId",
                         column: x => x.CompanyId,
                         principalTable: "Companies",
-                        principalColumn: "CompanyId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "CompanyId");
+                    table.ForeignKey(
+                        name: "FK_Vehicles_VehicleType_VehicleTypeId",
+                        column: x => x.VehicleTypeId,
+                        principalTable: "VehicleType",
+                        principalColumn: "VehicleTypeId");
                 });
 
             migrationBuilder.CreateTable(
                 name: "Haulages",
                 columns: table => new
                 {
-                    HaulageId = table.Column<int>(type: "int", nullable: false)
+                    HaulageID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    PathId = table.Column<int>(type: "int", nullable: false),
                     VehicleId = table.Column<int>(type: "int", nullable: false),
                     EmployeeId = table.Column<int>(type: "int", nullable: false),
-                    haulagePathId = table.Column<int>(type: "int", nullable: false),
+                    PathId = table.Column<int>(type: "int", nullable: false),
                     Weight = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Comments = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Dateofcarries = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    materialTypeId = table.Column<int>(type: "int", nullable: false)
+                    materialTypeId = table.Column<int>(type: "int", nullable: true),
+                    LoadPointId = table.Column<int>(type: "int", nullable: true),
+                    UnloadPointId = table.Column<int>(type: "int", nullable: true),
+                    ShiftId = table.Column<int>(type: "int", nullable: true),
+                    LoadPointName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UnloadPointName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LawType = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Kilometers = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    MaterialType = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    haulagePathId = table.Column<int>(type: "int", nullable: false),
+                    MaterialTypeematerialTypeId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Haulages", x => x.HaulageId);
+                    table.PrimaryKey("PK_Haulages", x => x.HaulageID);
                     table.ForeignKey(
                         name: "FK_Haulages_Employees_EmployeeId",
                         column: x => x.EmployeeId,
                         principalTable: "Employees",
-                        principalColumn: "EmployeeId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "EmployeeId");
                     table.ForeignKey(
-                        name: "FK_Haulages_Materials_materialTypeId",
-                        column: x => x.materialTypeId,
+                        name: "FK_Haulages_Materials_MaterialTypeematerialTypeId",
+                        column: x => x.MaterialTypeematerialTypeId,
                         principalTable: "Materials",
-                        principalColumn: "materialTypeId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "materialTypeId");
                     table.ForeignKey(
                         name: "FK_Haulages_Routes_haulagePathId",
                         column: x => x.haulagePathId,
                         principalTable: "Routes",
-                        principalColumn: "haulagePathId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "haulagePathId");
                     table.ForeignKey(
                         name: "FK_Haulages_Vehicles_VehicleId",
                         column: x => x.VehicleId,
                         principalTable: "Vehicles",
-                        principalColumn: "VehicleId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "VehicleId");
                 });
 
             migrationBuilder.CreateTable(
@@ -190,14 +214,17 @@ namespace WebApplication4.Migrations
                     HistoricId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TokenRegistryId = table.Column<int>(type: "int", nullable: false),
-                    VehicleId = table.Column<int>(type: "int", nullable: false),
-                    EmployeeId = table.Column<int>(type: "int", nullable: false),
-                    loadPointId = table.Column<int>(type: "int", nullable: false),
-                    unLoadPointId = table.Column<int>(type: "int", nullable: false),
+                    vehicle = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FullName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    loadPointName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    unLoadPointName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Weight = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     materialTypeId = table.Column<int>(type: "int", nullable: false),
                     Dateofcarries = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    WorkShiftId = table.Column<int>(type: "int", nullable: false)
+                    WorkShiftId = table.Column<int>(type: "int", nullable: false),
+                    VehicleNavigationVehicleId = table.Column<int>(type: "int", nullable: false),
+                    EmployeeId = table.Column<int>(type: "int", nullable: false),
+                    haulagePathId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -206,44 +233,32 @@ namespace WebApplication4.Migrations
                         name: "FK_Historics_Employees_EmployeeId",
                         column: x => x.EmployeeId,
                         principalTable: "Employees",
-                        principalColumn: "EmployeeId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "EmployeeId");
                     table.ForeignKey(
                         name: "FK_Historics_Materials_materialTypeId",
                         column: x => x.materialTypeId,
                         principalTable: "Materials",
-                        principalColumn: "materialTypeId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "materialTypeId");
                     table.ForeignKey(
-                        name: "FK_Historics_Routes_loadPointId",
-                        column: x => x.loadPointId,
+                        name: "FK_Historics_Routes_haulagePathId",
+                        column: x => x.haulagePathId,
                         principalTable: "Routes",
-                        principalColumn: "haulagePathId",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Historics_Routes_unLoadPointId",
-                        column: x => x.unLoadPointId,
-                        principalTable: "Routes",
-                        principalColumn: "haulagePathId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "haulagePathId");
                     table.ForeignKey(
                         name: "FK_Historics_Shifts_WorkShiftId",
                         column: x => x.WorkShiftId,
                         principalTable: "Shifts",
-                        principalColumn: "WorkShiftId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "WorkShiftId");
                     table.ForeignKey(
                         name: "FK_Historics_TokenRegistries_TokenRegistryId",
                         column: x => x.TokenRegistryId,
                         principalTable: "TokenRegistries",
-                        principalColumn: "TokenRegistryId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "TokenRegistryId");
                     table.ForeignKey(
-                        name: "FK_Historics_Vehicles_VehicleId",
-                        column: x => x.VehicleId,
+                        name: "FK_Historics_Vehicles_VehicleNavigationVehicleId",
+                        column: x => x.VehicleNavigationVehicleId,
                         principalTable: "Vehicles",
-                        principalColumn: "VehicleId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "VehicleId");
                 });
 
             migrationBuilder.CreateTable(
@@ -252,7 +267,7 @@ namespace WebApplication4.Migrations
                 {
                     ProgrammingRecordId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    HaulageId = table.Column<int>(type: "int", nullable: false),
+                    HaulageID = table.Column<int>(type: "int", nullable: false),
                     EmployeeId = table.Column<int>(type: "int", nullable: false),
                     Dateofcarries = table.Column<TimeSpan>(type: "time", nullable: false)
                 },
@@ -263,14 +278,12 @@ namespace WebApplication4.Migrations
                         name: "FK_ProgrammingRecords_Employees_EmployeeId",
                         column: x => x.EmployeeId,
                         principalTable: "Employees",
-                        principalColumn: "EmployeeId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "EmployeeId");
                     table.ForeignKey(
-                        name: "FK_ProgrammingRecords_Haulages_HaulageId",
-                        column: x => x.HaulageId,
+                        name: "FK_ProgrammingRecords_Haulages_HaulageID",
+                        column: x => x.HaulageID,
                         principalTable: "Haulages",
-                        principalColumn: "HaulageId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "HaulageID");
                 });
 
             migrationBuilder.CreateIndex(
@@ -289,9 +302,9 @@ namespace WebApplication4.Migrations
                 column: "haulagePathId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Haulages_materialTypeId",
+                name: "IX_Haulages_MaterialTypeematerialTypeId",
                 table: "Haulages",
-                column: "materialTypeId");
+                column: "MaterialTypeematerialTypeId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Haulages_VehicleId",
@@ -304,9 +317,9 @@ namespace WebApplication4.Migrations
                 column: "EmployeeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Historics_loadPointId",
+                name: "IX_Historics_haulagePathId",
                 table: "Historics",
-                column: "loadPointId");
+                column: "haulagePathId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Historics_materialTypeId",
@@ -319,14 +332,9 @@ namespace WebApplication4.Migrations
                 column: "TokenRegistryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Historics_unLoadPointId",
+                name: "IX_Historics_VehicleNavigationVehicleId",
                 table: "Historics",
-                column: "unLoadPointId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Historics_VehicleId",
-                table: "Historics",
-                column: "VehicleId");
+                column: "VehicleNavigationVehicleId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Historics_WorkShiftId",
@@ -339,14 +347,19 @@ namespace WebApplication4.Migrations
                 column: "EmployeeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProgrammingRecords_HaulageId",
+                name: "IX_ProgrammingRecords_HaulageID",
                 table: "ProgrammingRecords",
-                column: "HaulageId");
+                column: "HaulageID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Vehicles_CompanyId",
                 table: "Vehicles",
                 column: "CompanyId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Vehicles_VehicleTypeId",
+                table: "Vehicles",
+                column: "VehicleTypeId");
         }
 
         /// <inheritdoc />
@@ -381,6 +394,9 @@ namespace WebApplication4.Migrations
 
             migrationBuilder.DropTable(
                 name: "Companies");
+
+            migrationBuilder.DropTable(
+                name: "VehicleType");
         }
     }
 }

@@ -1,3 +1,4 @@
+/* Estilos generales */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -12,32 +13,14 @@ body {
     display: none;
 }
 
-.dx-fileuploader-button {
-    margin-left: 1px; /* Mueve el bot�n de archivos a la derecha */
-}
-
-
-
-/* Cambiar el color de fondo del bot�n del File Uploader */
-.dx-fileuploader-button {
-    background-color: #ffffff; /* Color azul */
-    color: rgb(0, 0, 0); /* Texto en blanco para mejor contraste */
-    border-color: #007bff; /* Color del borde */
-}
-
-    .dx-fileuploader-button:hover,
-    .dx-fileuploader-button:focus {
-        background-color: #0b2a4ab2; /* Color azul m�s oscuro al pasar o enfocar */
-        border-color: #ffffff; /* Color del borde al pasar o enfocar */
-    }
-
+/* Estilos para la barra de navegación */
 nav {
     background-color: #0B2A4A;
-    padding: 10px; /* Controla el espacio interno alrededor del contenido */
-    border-radius: 15px; /* Redondea las esquinas del elemento */
+    padding: 10px; /* Espacio interno alrededor del contenido */
+    border-radius: 15px; /* Redondea las esquinas */
     margin-bottom: 20px; /* Espacio hacia abajo entre elementos */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para efecto visual */
-    width: 99%; /* Ancho completo dentro del contenedor padre */
+    width: 98.1%; /* Ancho completo dentro del contenedor padre */
 }
 
     nav ul {
@@ -61,5 +44,128 @@ nav {
 
                 nav ul li a:hover {
                     color: #ccc;
-                    ���������������
                 }
+
+
+/* ajustar el ancho de las cabeceras de columna */
+#gridContainer .dx-datagrid-headers .dx-datagrid-text-content {
+    white-space: normal; /* Permitir el ajuste de línea */
+    overflow: visible; /* Permitir que el contenido desborde si es necesario */
+    text-overflow: unset; /* No truncar el texto */
+    min-width: 00px; /* Ancho mínimo de las cabeceras */
+}
+
+
+
+
+
+/* Asegura que el calendario esté un poco a la izquierda */
+#calendar {
+    position: relative; /* Permite desplazar el calendario en relación con su contenedor padre */
+    left: -250px; /* Ajusta este valor para mover el calendario hacia la izquierda */
+    margin: 0; /* Elimina márgenes alrededor del calendario */
+    padding: 0; /* Elimina rellenos alrededor del calendario */
+}
+
+/* Asegura que el contenedor principal no tenga márgenes ni rellenos que puedan desplazar el calendario */
+body, html {
+    margin: 0; /* Elimina márgenes del navegador */
+    padding: 0; /* Elimina rellenos del navegador */
+}
+
+
+
+
+
+/* Contenedor del formulario */
+.form-container {
+    position: relative; /* Necesario para que el formulario se posicione dentro de este contenedor */
+}
+
+/* Estilo general para el formulario */
+form {
+    position: absolute;
+    right: 350px; /* Mueve el formulario hacia la derecha */
+    top: 150px; /* Mueve el formulario hacia arriba */
+    margin-bottom: 10px; /* Espacio inferior del formulario, si necesitas mantener un margen inferior */
+}
+
+
+/* Estilo general para el input file */
+input[type="file"] {
+    width: auto; /* Ajusta el ancho del input al contenido */
+    padding: 8px; /* Espacio interno */
+    border: 1px solid #1e88e5; /* Borde azul claro */
+    border-radius: 4px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de la fuente */
+    color: #333; /* Color del texto */
+    background-color: #e3f2fd; /* Fondo azul claro */
+    cursor: pointer; /* Cambia el cursor a mano cuando pasa por encima */
+    display: inline-block; /* Permite que el input se comporte como un bloque en línea */
+    margin: 0; /* Elimina márgenes predeterminados que puedan afectar la alineación */
+}
+
+    /* Cambia el color de fondo y borde cuando el input está enfocado */
+    input[type="file"]:focus {
+        border-color: #1976d2; /* Borde azul más oscuro cuando está enfocado */
+        background-color: #bbdefb; /* Fondo azul más claro cuando está enfocado */
+        outline: none; /* Elimina el borde de enfoque predeterminado */
+    }
+
+    /* Estilo para el botón de selección en sistemas basados en WebKit (Chrome, Safari) */
+    input[type="file"]::-webkit-file-upload-button {
+        background-color: #1e88e5; /* Color de fondo del botón */
+        border: none; /* Sin borde */
+        border-radius: 4px; /* Bordes redondeados */
+        color: #ffffff; /* Color del texto */
+        padding: 8px 16px; /* Espacio interno del botón */
+        font-size: 16px; /* Tamaño de la fuente */
+        cursor: pointer; /* Cambia el cursor a mano cuando pasa por encima */
+    }
+
+
+/* Contenedor del botón */
+.button-container {
+    position: relative; /* Necesario para que el botón se posicione dentro de este contenedor */
+}
+
+/* Estilo del botón */
+button#boton {
+    position: absolute;
+    right: 500px; /* Mueve el botón hacia la derecha */
+    top: 230px; /* Ajusta la posición vertical desde la parte superior */
+    background-color: #4caf50; /* Color de fondo verde */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    color: white; /* Color del texto */
+    padding: 10px 20px; /* Espacio interno del botón */
+    font-size: 16px; /* Tamaño de la fuente */
+    cursor: pointer; /* Cambia el cursor a mano cuando pasa por encima */
+    transition: background-color 0.3s ease; /* Transición suave para el cambio de color */
+}
+
+    /* Estilo para el botón al pasar el mouse por encima */
+    button#boton:hover {
+        background-color: #45a049; /* Color verde más oscuro al pasar el mouse */
+    }
+
+    /* Estilo para el botón al estar enfocado */
+    button#boton:focus {
+        outline: none; /* Elimina el borde de enfoque predeterminado */
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Añade una sombra sutil al estar enfocado */
+    }
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 600px) {
+    .form-container {
+        flex-direction: column; /* Cambia a una columna en pantallas pequeñas */
+        align-items: stretch; /* Estira el contenido para ocupar el ancho completo */
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+    }
+
+    button#boton {
+        width: 100%; /* El botón ocupa el ancho completo en pantallas pequeñas */
+    }
+}

@@ -3,12 +3,15 @@ using WebApplication4.Models;
 
 namespace WebApplication4.Data
 {
+    // DbContext para la aplicación
     public class dbboot : DbContext
     {
+        // Constructor que recibe opciones de configuración para el DbContext
         public dbboot(DbContextOptions<dbboot> options) : base(options)
         {
         }
 
+        // DbSet para cada entidad en el modelo de datos
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Historic> Historics { get; set; }
@@ -20,93 +23,109 @@ namespace WebApplication4.Data
         public DbSet<Company> Companies { get; set; }
         public DbSet<Material> Materials { get; set; }
 
+        // Configuración del modelo de datos
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            // Configuración de relaciones
-            modelBuilder.Entity<Vehicle>()
-                .HasOne(v => v.Company)
-                .WithMany(c => c.Vehicles)
-                .HasForeignKey(v => v.CompanyId);
+            // Configura la eliminación en cascada para todas las claves foráneas como NoAction
+            foreach (var forenkey in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
+            {
+                forenkey.DeleteBehavior = DeleteBehavior.NoAction;
+            }
 
-            modelBuilder.Entity<Employee>()
-                .HasOne(e => e.Company)
-                .WithMany(c => c.Employees)
-                .HasForeignKey(e => e.CompanyId);
+            // Comentarios de configuración de relaciones entre entidades
+            // Descomenta y ajusta según sea necesario para definir las relaciones
 
-            modelBuilder.Entity<Historic>()
-                .HasOne(h => h.TokenRegistry)
-                .WithMany(t => t.Historics)
-                .HasForeignKey(h => h.TokenRegistryId)
-                .OnDelete(DeleteBehavior.Restrict);
+            // Configuración de la relación entre Vehicle y Company
+            //modelBuilder.Entity<Vehicle>()
+            //    .HasOne(v => v.Company)
+            //    .WithMany()
+            //    .HasForeignKey(v => v.CompanyId);
 
-            modelBuilder.Entity<Historic>()
-                .HasOne(h => h.Vehicle)
-                .WithMany(v => v.Historics)
-                .HasForeignKey(h => h.VehicleId)
-                .OnDelete(DeleteBehavior.Restrict);
+            // Configuración de la relación entre Employee y Company
+            //modelBuilder.Entity<Employee>()
+            //    .HasOne(e => e.Company)
+            //    .WithMany()
+            //    .HasForeignKey(e => e.CompanyId);
 
-            modelBuilder.Entity<Historic>()
-                .HasOne(h => h.LoadPoint)
-                .WithMany(r => r.loadHistorics)
-                .HasForeignKey(h => h.loadPointId)
-                .OnDelete(DeleteBehavior.Restrict);
+            // Configuración de la relación entre Historic y TokenRegistry
+            //modelBuilder.Entity<Historic>()
+            //    .HasOne(h => h.TokenRegistry)
+            //    .WithMany()
+            //    .HasForeignKey(h => h.TokenRegistryId);
 
-            modelBuilder.Entity<Historic>()
-                .HasOne(h => h.UnloadPoint)
-                .WithMany(r => r.unloadHistorics)
-                .HasForeignKey(h => h.unLoadPointId)
-                .OnDelete(DeleteBehavior.Restrict);
+            // Configuración de la relación entre Historic y Vehicle
+            //modelBuilder.Entity<Historic>()
+            //    .HasOne(h => h.VehicleNavigation)
+            //    .WithMany()
+            //    .HasForeignKey(h => h.VehicleId);
 
-            modelBuilder.Entity<Historic>()
-                .HasOne(h => h.UnloadPoint)
-                .WithMany(r => r.unloadHistorics)
-                .HasForeignKey(h => h.unLoadPointId)
-                .OnDelete(DeleteBehavior.Restrict);
+            // Configuración de la relación entre Historic y Employee
+            //modelBuilder.Entity<Historic>()
+            //    .HasOne(h => h.Employee)
+            //    .WithMany()
+            //    .HasForeignKey(h => h.EmployeeId);
 
-            modelBuilder.Entity<Historic>()
-                .HasOne(h => h.Material)
-                .WithMany(m => m.Historics)
-                .HasForeignKey(h => h.materialTypeId);
+            // Configuración de la relación entre Historic y LoadPoint
+            //modelBuilder.Entity<Historic>()
+            //    .HasOne(h => h.LoadPoint)
+            //    .WithMany()
+            //    .HasForeignKey(h => h.LoadPointId);
 
-            modelBuilder.Entity<Historic>()
-                .HasOne(h => h.Shift)
-                .WithMany(s => s.Historics)
-                .HasForeignKey(h => h.WorkShiftId);
+            // Configuración de la relación entre Historic y UnloadPoint
+            //modelBuilder.Entity<Historic>()
+            //    .HasOne(h => h.UnLoadPoint)
+            //    .WithMany()
+            //    .HasForeignKey(h => h.UnLoadPointId);
 
-            modelBuilder.Entity<ProgrammingRecord>()
-                .HasOne(p => p.Haulage)
-                .WithMany(h => h.ProgrammingRecords)
-                .HasForeignKey(p => p.HaulageId)
-                .OnDelete(DeleteBehavior.Restrict);
+            // Configuración de la relación entre Historic y MaterialType
+            //modelBuilder.Entity<Historic>()
+            //    .HasOne(h => h.MaterialType)
+            //    .WithMany()
+            //    .HasForeignKey(h => h.MaterialTypeId);
 
-            modelBuilder.Entity<ProgrammingRecord>()
-                .HasOne(p => p.Employee)
-                .WithMany(e => e.ProgrammingRecords)
-                .HasForeignKey(p => p.EmployeeId)
-                .OnDelete(DeleteBehavior.Restrict);
+            // Configuración de la relación entre Historic y WorkShift
+            //modelBuilder.Entity<Historic>()
+            //    .HasOne(h => h.WorkShift)
+            //    .WithMany()
+            //    .HasForeignKey(h => h.WorkShiftId);
 
-            modelBuilder.Entity<Haulage>()
-                .HasOne(h => h.Vehicle)
-                .WithMany(v => v.Haulages)
-                .HasForeignKey(h => h.VehicleId)
-                .OnDelete(DeleteBehavior.Restrict);
+            // Configuración de la relación entre ProgrammingRecord y Haulage
+            //modelBuilder.Entity<ProgrammingRecord>()
+            //    .HasOne(p => p.Haulage)
+            //    .WithMany()
+            //    .HasForeignKey(p => p.HaulageID);
 
-            modelBuilder.Entity<Haulage>()
-                .HasOne(h => h.Employee)
-                .WithMany(e => e.Haulages)
-                .HasForeignKey(h => h.EmployeeId);
+            // Configuración de la relación entre ProgrammingRecord y Employee
+            //modelBuilder.Entity<ProgrammingRecord>()
+            //    .HasOne(p => p.Employee)
+            //    .WithMany()
+            //    .HasForeignKey(p => p.EmployeeId);
 
-            modelBuilder.Entity<Haulage>()
-                .HasOne(h => h.Route)
-                .WithMany(r => r.Haulages)
-                .HasForeignKey(h => h.haulagePathId);
+            // Configuración de la relación entre Haulage y Vehicle
+            //modelBuilder.Entity<Haulage>()
+            //    .HasOne(h => h.VehicleNavigation)
+            //    .WithMany()
+            //    .HasForeignKey(h => h.VehicleId);
 
-            modelBuilder.Entity<Haulage>()
-                .HasOne(h => h.Material)
-                .WithMany(m => m.Haulages)
-                .HasForeignKey(h => h.materialTypeId);
+            // Configuración de la relación entre Haulage y Employee
+            //modelBuilder.Entity<Haulage>()
+            //    .HasOne(h => h.Employee)
+            //    .WithMany()
+            //    .HasForeignKey(h => h.EmployeeId);
+
+            // Configuración de la relación entre Haulage y Route
+            //modelBuilder.Entity<Haulage>()
+            //    .HasOne(h => h.HaulagePath)
+            //    .WithMany()
+            //    .HasForeignKey(h => h.PathId);
+
+            // Configuración de la relación entre Haulage y MaterialType
+            //modelBuilder.Entity<Haulage>()
+            //    .HasOne(h => h.MaterialType)
+            //    .WithMany()
+            //    .HasForeignKey(h => h.MaterialTypeId);
         }
     }
 }

@@ -3,44 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Pablo\\source\\repos\\WebApplication4\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{4B504B88-4298-4B05-9A8F-EC4488982717}|WebApplication4\\WebApplication4.csproj|c:\\users\\pablo\\source\\repos\\webapplication4\\webapplication4\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B504B88-4298-4B05-9A8F-EC4488982717}|WebApplication4\\WebApplication4.csproj|solutionrelative:webapplication4\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B504B88-4298-4B05-9A8F-EC4488982717}|WebApplication4\\WebApplication4.csproj|c:\\users\\pablo\\source\\repos\\webapplication4\\webapplication4\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{4B504B88-4298-4B05-9A8F-EC4488982717}|WebApplication4\\WebApplication4.csproj|solutionrelative:webapplication4\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B504B88-4298-4B05-9A8F-EC4488982717}|WebApplication4\\WebApplication4.csproj|c:\\users\\pablo\\source\\repos\\webapplication4\\webapplication4\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4B504B88-4298-4B05-9A8F-EC4488982717}|WebApplication4\\WebApplication4.csproj|solutionrelative:webapplication4\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B504B88-4298-4B05-9A8F-EC4488982717}|WebApplication4\\WebApplication4.csproj|c:\\users\\pablo\\source\\repos\\webapplication4\\webapplication4\\views\\authentication\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4B504B88-4298-4B05-9A8F-EC4488982717}|WebApplication4\\WebApplication4.csproj|solutionrelative:webapplication4\\views\\authentication\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4B504B88-4298-4B05-9A8F-EC4488982717}|WebApplication4\\WebApplication4.csproj|c:\\users\\pablo\\source\\repos\\webapplication4\\webapplication4\\data\\dbboot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4B504B88-4298-4B05-9A8F-EC4488982717}|WebApplication4\\WebApplication4.csproj|solutionrelative:webapplication4\\data\\dbboot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4B504B88-4298-4B05-9A8F-EC4488982717}|WebApplication4\\WebApplication4.csproj|c:\\users\\pablo\\source\\repos\\webapplication4\\webapplication4\\models\\historic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4B504B88-4298-4B05-9A8F-EC4488982717}|WebApplication4\\WebApplication4.csproj|solutionrelative:webapplication4\\models\\historic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4B504B88-4298-4B05-9A8F-EC4488982717}|WebApplication4\\WebApplication4.csproj|c:\\users\\pablo\\source\\repos\\webapplication4\\webapplication4\\models\\viewmodels\\hiserror.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4B504B88-4298-4B05-9A8F-EC4488982717}|WebApplication4\\WebApplication4.csproj|solutionrelative:webapplication4\\models\\viewmodels\\hiserror.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4B504B88-4298-4B05-9A8F-EC4488982717}|WebApplication4\\WebApplication4.csproj|c:\\users\\pablo\\source\\repos\\webapplication4\\webapplication4\\services\\datageneratorjob.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4B504B88-4298-4B05-9A8F-EC4488982717}|WebApplication4\\WebApplication4.csproj|solutionrelative:webapplication4\\services\\datageneratorjob.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4B504B88-4298-4B05-9A8F-EC4488982717}|WebApplication4\\WebApplication4.csproj|c:\\users\\pablo\\source\\repos\\webapplication4\\webapplication4\\services\\datasyncservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4B504B88-4298-4B05-9A8F-EC4488982717}|WebApplication4\\WebApplication4.csproj|solutionrelative:webapplication4\\services\\datasyncservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4B504B88-4298-4B05-9A8F-EC4488982717}|WebApplication4\\WebApplication4.csproj|c:\\users\\pablo\\source\\repos\\webapplication4\\webapplication4\\controllers\\importcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4B504B88-4298-4B05-9A8F-EC4488982717}|WebApplication4\\WebApplication4.csproj|solutionrelative:webapplication4\\controllers\\importcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4B504B88-4298-4B05-9A8F-EC4488982717}|WebApplication4\\WebApplication4.csproj|c:\\users\\pablo\\source\\repos\\webapplication4\\webapplication4\\models\\route.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4B504B88-4298-4B05-9A8F-EC4488982717}|WebApplication4\\WebApplication4.csproj|solutionrelative:webapplication4\\models\\route.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4B504B88-4298-4B05-9A8F-EC4488982717}|WebApplication4\\WebApplication4.csproj|c:\\users\\pablo\\source\\repos\\webapplication4\\webapplication4\\models\\vehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4B504B88-4298-4B05-9A8F-EC4488982717}|WebApplication4\\WebApplication4.csproj|solutionrelative:webapplication4\\models\\vehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4B504B88-4298-4B05-9A8F-EC4488982717}|WebApplication4\\WebApplication4.csproj|c:\\users\\pablo\\source\\repos\\webapplication4\\webapplication4\\controllers\\controlcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4B504B88-4298-4B05-9A8F-EC4488982717}|WebApplication4\\WebApplication4.csproj|solutionrelative:webapplication4\\controllers\\controlcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4B504B88-4298-4B05-9A8F-EC4488982717}|WebApplication4\\WebApplication4.csproj|c:\\users\\pablo\\source\\repos\\webapplication4\\webapplication4\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4B504B88-4298-4B05-9A8F-EC4488982717}|WebApplication4\\WebApplication4.csproj|solutionrelative:webapplication4\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,135 +30,72 @@
       "DocumentGroups": [
         {
           "DockedWidth": 235,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Vehicle.cs",
-              "DocumentMoniker": "C:\\Users\\Pablo\\source\\repos\\WebApplication4\\WebApplication4\\Models\\Vehicle.cs",
-              "RelativeDocumentMoniker": "WebApplication4\\Models\\Vehicle.cs",
-              "ToolTip": "C:\\Users\\Pablo\\source\\repos\\WebApplication4\\WebApplication4\\Models\\Vehicle.cs",
-              "RelativeToolTip": "WebApplication4\\Models\\Vehicle.cs",
-              "ViewState": "AQIAAAEAAAAAAAAAAAAQwBUAAAABAAAA",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Pablo\\source\\repos\\WebApplication4\\WebApplication4\\Program.cs",
+              "RelativeDocumentMoniker": "WebApplication4\\Program.cs",
+              "ToolTip": "C:\\Users\\Pablo\\source\\repos\\WebApplication4\\WebApplication4\\Program.cs",
+              "RelativeToolTip": "WebApplication4\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-08T20:52:22.756Z",
+              "WhenOpened": "2024-08-19T21:30:27.046Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Historic.cs",
-              "DocumentMoniker": "C:\\Users\\Pablo\\source\\repos\\WebApplication4\\WebApplication4\\Models\\Historic.cs",
-              "RelativeDocumentMoniker": "WebApplication4\\Models\\Historic.cs",
-              "ToolTip": "C:\\Users\\Pablo\\source\\repos\\WebApplication4\\WebApplication4\\Models\\Historic.cs",
-              "RelativeToolTip": "WebApplication4\\Models\\Historic.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAmwCAAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-08T20:17:55.104Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "HisError.cs",
-              "DocumentMoniker": "C:\\Users\\Pablo\\source\\repos\\WebApplication4\\WebApplication4\\Models\\ViewModels\\HisError.cs",
-              "RelativeDocumentMoniker": "WebApplication4\\Models\\ViewModels\\HisError.cs",
-              "ToolTip": "C:\\Users\\Pablo\\source\\repos\\WebApplication4\\WebApplication4\\Models\\ViewModels\\HisError.cs",
-              "RelativeToolTip": "WebApplication4\\Models\\ViewModels\\HisError.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-08T20:28:56.759Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ControlController.cs",
-              "DocumentMoniker": "C:\\Users\\Pablo\\source\\repos\\WebApplication4\\WebApplication4\\Controllers\\ControlController.cs",
-              "RelativeDocumentMoniker": "WebApplication4\\Controllers\\ControlController.cs",
-              "ToolTip": "C:\\Users\\Pablo\\source\\repos\\WebApplication4\\WebApplication4\\Controllers\\ControlController.cs",
-              "RelativeToolTip": "WebApplication4\\Controllers\\ControlController.cs",
-              "ViewState": "AQIAABoAAAAAAAAAAAAAwBcAAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-08T20:28:10.26Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ImportController.cs",
-              "DocumentMoniker": "C:\\Users\\Pablo\\source\\repos\\WebApplication4\\WebApplication4\\Controllers\\ImportController.cs",
-              "RelativeDocumentMoniker": "WebApplication4\\Controllers\\ImportController.cs",
-              "ToolTip": "C:\\Users\\Pablo\\source\\repos\\WebApplication4\\WebApplication4\\Controllers\\ImportController.cs",
-              "RelativeToolTip": "WebApplication4\\Controllers\\ImportController.cs",
-              "ViewState": "AQIAADEAAAAAAAAAAAAlwCQAAABXAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-08T20:25:02.304Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DataSyncService.cs",
-              "DocumentMoniker": "C:\\Users\\Pablo\\source\\repos\\WebApplication4\\WebApplication4\\Services\\DataSyncService.cs",
-              "RelativeDocumentMoniker": "WebApplication4\\Services\\DataSyncService.cs",
-              "ToolTip": "C:\\Users\\Pablo\\source\\repos\\WebApplication4\\WebApplication4\\Services\\DataSyncService.cs",
-              "RelativeToolTip": "WebApplication4\\Services\\DataSyncService.cs",
-              "ViewState": "AQIAACIAAAAAAAAAAAA4wC4AAAAvAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-08T20:24:52.992Z",
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Pablo\\source\\repos\\WebApplication4\\WebApplication4\\appsettings.json",
+              "RelativeDocumentMoniker": "WebApplication4\\appsettings.json",
+              "ToolTip": "C:\\Users\\Pablo\\source\\repos\\WebApplication4\\WebApplication4\\appsettings.json",
+              "RelativeToolTip": "WebApplication4\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-08-19T21:30:22.554Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "DataGeneratorJob.cs",
-              "DocumentMoniker": "C:\\Users\\Pablo\\source\\repos\\WebApplication4\\WebApplication4\\Services\\DataGeneratorJob.cs",
-              "RelativeDocumentMoniker": "WebApplication4\\Services\\DataGeneratorJob.cs",
-              "ToolTip": "C:\\Users\\Pablo\\source\\repos\\WebApplication4\\WebApplication4\\Services\\DataGeneratorJob.cs",
-              "RelativeToolTip": "WebApplication4\\Services\\DataGeneratorJob.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAxwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-08T20:24:46.337Z",
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\Pablo\\source\\repos\\WebApplication4\\WebApplication4\\Views\\Authentication\\Login.cshtml",
+              "RelativeDocumentMoniker": "WebApplication4\\Views\\Authentication\\Login.cshtml",
+              "ToolTip": "C:\\Users\\Pablo\\source\\repos\\WebApplication4\\WebApplication4\\Views\\Authentication\\Login.cshtml",
+              "RelativeToolTip": "WebApplication4\\Views\\Authentication\\Login.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-19T21:29:54.801Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Pablo\\source\\repos\\WebApplication4\\WebApplication4\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebApplication4\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Pablo\\source\\repos\\WebApplication4\\WebApplication4\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "WebApplication4\\Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-19T21:29:41.35Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "dbboot.cs",
               "DocumentMoniker": "C:\\Users\\Pablo\\source\\repos\\WebApplication4\\WebApplication4\\Data\\dbboot.cs",
               "RelativeDocumentMoniker": "WebApplication4\\Data\\dbboot.cs",
               "ToolTip": "C:\\Users\\Pablo\\source\\repos\\WebApplication4\\WebApplication4\\Data\\dbboot.cs",
               "RelativeToolTip": "WebApplication4\\Data\\dbboot.cs",
-              "ViewState": "AQIAAEoAAAAAAAAAAAAQwFcAAAAzAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-08T20:19:41.671Z",
+              "WhenOpened": "2024-08-19T21:28:19.06Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Route.cs",
-              "DocumentMoniker": "C:\\Users\\Pablo\\source\\repos\\WebApplication4\\WebApplication4\\Models\\Route.cs",
-              "RelativeDocumentMoniker": "WebApplication4\\Models\\Route.cs",
-              "ToolTip": "C:\\Users\\Pablo\\source\\repos\\WebApplication4\\WebApplication4\\Models\\Route.cs",
-              "RelativeToolTip": "WebApplication4\\Models\\Route.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-08T20:30:45.64Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Employee.cs",
-              "DocumentMoniker": "C:\\Users\\Pablo\\source\\repos\\WebApplication4\\WebApplication4\\Models\\Employee.cs",
-              "RelativeDocumentMoniker": "WebApplication4\\Models\\Employee.cs",
-              "ToolTip": "C:\\Users\\Pablo\\source\\repos\\WebApplication4\\WebApplication4\\Models\\Employee.cs",
-              "RelativeToolTip": "WebApplication4\\Models\\Employee.cs",
-              "ViewState": "AQIAAAEAAAAAAAAAAAAswA4AAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-08T20:17:02.33Z"
             }
           ]
         }

@@ -1,6 +1,6 @@
 ﻿@{
-    ViewData["Title"] = "Login";
-    Layout = null; // Esto indica que no se utilizará un layout específico para esta página
+    ViewData["Title"] = "Login"; // Define el título de la página
+    Layout = null; // Indica que esta vista no utilizará un layout específico
 }
 
 <!DOCTYPE html>
@@ -9,15 +9,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio de Sesión</title>
+    <!-- Inclusión de jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Inclusión de DevExtreme JavaScript -->
     <script src="https://cdn3.devexpress.com/jslib/20.2.5/js/dx.all.js"></script>
+    <!-- Inclusión de DevExtreme CSS -->
     <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/20.2.5/css/dx.light.css">
+    <!-- Inclusión de estilos personalizados -->
     <link rel="stylesheet" type="text/css" href="~/css/index.css">
 </head>
 <body>
     <div class="center-container">
+        <!-- Imagen del logotipo -->
         <img src="~/images/smart.png" alt="Imagen Smart" style="max-width: 300px;">
         <div class="container">
+            <!-- Formulario de inicio de sesión -->
             <form method="post" asp-controller="Authentication" asp-action="Login">
                 <div class="form-group">
                     <label for="username">Username</label>
@@ -29,14 +35,17 @@
                 </div>
                 <button type="submit" class="btn btn-primary dx-button">Login</button>
             </form>
-            @if (!ViewData.ModelState.IsValid)
+
+            <!-- Mensaje de error si existe -->
+            @if (TempData["ErrorMessage"] != null)
             {
                 <div class="alert alert-danger" style="margin-top: 15px;">
-                    Invalid login attempt.
+                    @TempData["ErrorMessage"]
                 </div>
             }
         </div>
         <div class="image-container">
+            <!-- Imágenes adicionales -->
             <img src="~/images/beck.png" alt="Imagen de Beck" style="max-width: 100px;">
             <img src="~/images/lasec.png" alt="Imagen de lasec" style="max-width: 100px;">
         </div>

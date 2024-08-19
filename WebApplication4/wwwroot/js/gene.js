@@ -1,29 +1,24 @@
 ﻿$(document).ready(function () {
     var dataSource = [
-        { ID: 1, Vehiculo: 'Camión A', Title: 'Operador 1', CompaniaVehiculo: 'Compañía A', CompaniaEmpleado: 'Compañía X', duracion: '2 horas', ToneladasTotales: '5', FechaDescarga: '2024-07-10', FechaModificacion: '2024-07-10', SitioCarga: 'Sitio A', SitioDescarga: 'Sitio B', UsuarioModifico: 'Usuario 1', TipoMineral: 'Mineral A', TipoAcarreo: 'Acarreo 1', TipoPeso: 'Peso 1' },
-        { ID: 2, Vehiculo: 'Camión B', Title: 'Operador 2', CompaniaVehiculo: 'Compañía B', CompaniaEmpleado: 'Compañía Y', duracion: '3 horas', ToneladasTotales: '7', FechaDescarga: '2024-07-11', FechaModificacion: '2024-07-11', SitioCarga: 'Sitio B', SitioDescarga: 'Sitio C', UsuarioModifico: 'Usuario 2', TipoMineral: 'Mineral B', TipoAcarreo: 'Acarreo 2', TipoPeso: 'Peso 2' }
+        //{ ID: 1, Vehiculo: 'Camión A', Title: 'Operador 1', CompaniaVehiculo: 'Compañía A', CompaniaEmpleado: 'Compañía X', duracion: '2 horas', ToneladasTotales: '5', FechaDescarga: '2024-07-10', FechaModificacion: '2024-07-10', SitioCarga: 'Sitio A', SitioDescarga: 'Sitio B', UsuarioModifico: 'Usuario 1', TipoMineral: 'Mineral A',  },
+        //{ ID: 2, Vehiculo: 'Camión B', Title: 'Operador 2', CompaniaVehiculo: 'Compañía B', CompaniaEmpleado: 'Compañía Y', duracion: '3 horas', ToneladasTotales: '7', FechaDescarga: '2024-07-11', FechaModificacion: '2024-07-11', SitioCarga: 'Sitio B', SitioDescarga: 'Sitio C', UsuarioModifico: 'Usuario 2', TipoMineral: 'Mineral B',  }
         // Agregar más objetos según sea necesario
     ];
 
     $('#treeListContainer').dxTreeList({
-        dataSource: dataSource,
-        keyExpr: 'ID',
+        dataSource: [],
+        /*keyExpr: 'ID',*/
         showBorders: true,
+        width: '100%',
+        height: 380,
         columns: [
-            { dataField: 'Vehiculo', caption: 'Vehiculo' },
-            { dataField: 'Title', caption: 'Operador' },
-            { dataField: 'CompaniaVehiculo', caption: 'Compañia del Vehículo' },
-            { dataField: 'CompaniaEmpleado', caption: 'Compañia del empleado' },
-            { dataField: 'duracion', caption: 'Duracion' },
-            { dataField: 'ToneladasTotales', caption: 'Toneladas Totales' },
-            { dataField: 'FechaDescarga', caption: 'Fecha de Descarga' },
-            { dataField: 'FechaModificacion', caption: 'Fecha de Modificación' },
-            { dataField: 'SitioCarga', caption: 'Sitio de Carga' },
-            { dataField: 'SitioDescarga', caption: 'Sitio de Descarga' },
-            { dataField: 'UsuarioModifico', caption: 'Usuario que Modificó' },
-            { dataField: 'TipoMineral', caption: 'Tipo de Mineral' },
-            { dataField: 'TipoAcarreo', caption: 'Tipo de Acarreo' },
-            { dataField: 'TipoPeso', caption: 'Tipo de Peso' },
+            {
+                dataField: 'Vehicle', caption: 'Vehiculo'
+            },
+            { dataField: 'Employee', caption: 'Empleado' },
+            { dataField: 'Route', caption: 'Ruta' },
+            { dataField: 'Weigth', caption: 'Peso' },
+            { dataField: 'Material', caption: 'Material' },
         ],
     });
 
@@ -34,27 +29,28 @@
     });
 
     $.ajax({
-        url: '/api/Acarreo',
+        url: '/api/Haulages',
         method: 'GET',
         success: function (data) {
             // Inicializar DevExtreme TreeList con los datos recibidos
             $('#treeListContainer').dxTreeList({
                 dataSource: data,
-                keyExpr: 'AcarreoID',
+                keyExpr: 'HaulageId',
                 showBorders: true,
                 columns: [
-                    { dataField: 'VehiculoID', caption: 'Vehiculo' },
-                    { dataField: 'OperadorID', caption: 'Operador' },
-                    { dataField: 'RutaID', caption: 'Ruta' },
-                    { dataField: 'Toneladas', caption: 'Toneladas' },
-                    { dataField: 'MaterialID', caption: 'Material' },
-                    { dataField: 'Comentarios', caption: 'Comentarios' }
+                    { dataField: 'VehicleId', caption: 'Vehiculo' },
+                    { dataField: 'EmployeeId', caption: 'Operador' },
+                    { dataField: 'PathId', caption: 'Ruta' },
+                    { dataField: 'Weight', caption: 'Toneladas' },
+                    { dataField: 'MaterialTypeId', caption: 'Material' },
+                    { dataField: 'Comments', caption: 'Comentarios' }
                 ],
             });
         },
         error: function (error) {
             console.error('Error al obtener los datos de Acarreo:', error);
         }
+    }); // Cierre del bloque $.ajax
 
     // Configuración de dxTextBox para 'Vehículo'
     $('#veiculo').dxTextBox({
@@ -81,11 +77,20 @@
         offText: 'OFF',
         width: 100,
         onValueChanged: function (e) {
-            if (e.value) {
-                alert('Bot encendido!');
-            } else {
-                alert('Bot apagado!');
-            }
+            var isEnabled = e.value;
+            $.ajax({
+                url: '/api/sync/toggle',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(isEnabled),
+                success: function () {
+                    if (isEnabled) {
+                        alert('Sincronización habilitada.');
+                    } else {
+                        alert('Sincronización deshabilitada.');
+                    }
+                }
+            });
         }
     });
 

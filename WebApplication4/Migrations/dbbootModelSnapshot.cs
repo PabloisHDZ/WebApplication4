@@ -78,11 +78,11 @@ namespace WebApplication4.Migrations
 
             modelBuilder.Entity("WebApplication4.Models.Haulage", b =>
                 {
-                    b.Property<int>("HaulageId")
+                    b.Property<int>("HaulageID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("HaulageId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("HaulageID"));
 
                     b.Property<string>("Comments")
                         .IsRequired()
@@ -95,8 +95,36 @@ namespace WebApplication4.Migrations
                     b.Property<int>("EmployeeId")
                         .HasColumnType("int");
 
+                    b.Property<decimal?>("Kilometers")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("LawType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("LoadPointId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("LoadPointName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MaterialType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("MaterialTypeematerialTypeId")
+                        .HasColumnType("int");
+
                     b.Property<int>("PathId")
                         .HasColumnType("int");
+
+                    b.Property<int?>("ShiftId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("UnloadPointId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UnloadPointName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("VehicleId")
                         .HasColumnType("int");
@@ -107,18 +135,18 @@ namespace WebApplication4.Migrations
                     b.Property<int>("haulagePathId")
                         .HasColumnType("int");
 
-                    b.Property<int>("materialTypeId")
+                    b.Property<int?>("materialTypeId")
                         .HasColumnType("int");
 
-                    b.HasKey("HaulageId");
+                    b.HasKey("HaulageID");
 
                     b.HasIndex("EmployeeId");
+
+                    b.HasIndex("MaterialTypeematerialTypeId");
 
                     b.HasIndex("VehicleId");
 
                     b.HasIndex("haulagePathId");
-
-                    b.HasIndex("materialTypeId");
 
                     b.ToTable("Haulages");
                 });
@@ -138,10 +166,14 @@ namespace WebApplication4.Migrations
                     b.Property<int>("EmployeeId")
                         .HasColumnType("int");
 
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("TokenRegistryId")
                         .HasColumnType("int");
 
-                    b.Property<int>("VehicleId")
+                    b.Property<int>("VehicleNavigationVehicleId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Weight")
@@ -150,14 +182,23 @@ namespace WebApplication4.Migrations
                     b.Property<int>("WorkShiftId")
                         .HasColumnType("int");
 
-                    b.Property<int>("loadPointId")
+                    b.Property<int>("haulagePathId")
                         .HasColumnType("int");
+
+                    b.Property<string>("loadPointName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("materialTypeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("unLoadPointId")
-                        .HasColumnType("int");
+                    b.Property<string>("unLoadPointName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("vehicle")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("HistoricId");
 
@@ -165,15 +206,13 @@ namespace WebApplication4.Migrations
 
                     b.HasIndex("TokenRegistryId");
 
-                    b.HasIndex("VehicleId");
+                    b.HasIndex("VehicleNavigationVehicleId");
 
                     b.HasIndex("WorkShiftId");
 
-                    b.HasIndex("loadPointId");
+                    b.HasIndex("haulagePathId");
 
                     b.HasIndex("materialTypeId");
-
-                    b.HasIndex("unLoadPointId");
 
                     b.ToTable("Historics");
                 });
@@ -209,14 +248,14 @@ namespace WebApplication4.Migrations
                     b.Property<int>("EmployeeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("HaulageId")
+                    b.Property<int>("HaulageID")
                         .HasColumnType("int");
 
                     b.HasKey("ProgrammingRecordId");
 
                     b.HasIndex("EmployeeId");
 
-                    b.HasIndex("HaulageId");
+                    b.HasIndex("HaulageID");
 
                     b.ToTable("ProgrammingRecords");
                 });
@@ -255,7 +294,7 @@ namespace WebApplication4.Migrations
                     b.Property<int>("unLoadPointId")
                         .HasColumnType("int");
 
-                    b.Property<string>("unloadPointName")
+                    b.Property<string>("unLoadPointName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -282,6 +321,12 @@ namespace WebApplication4.Migrations
 
                     b.Property<TimeSpan>("EndTime")
                         .HasColumnType("time");
+
+                    b.Property<TimeSpan>("OperationTime")
+                        .HasColumnType("time");
+
+                    b.Property<int>("ShiftId")
+                        .HasColumnType("int");
 
                     b.Property<TimeSpan>("StartTime")
                         .HasColumnType("time");
@@ -327,6 +372,10 @@ namespace WebApplication4.Migrations
                     b.Property<int>("CompanyId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("EconomicNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -355,15 +404,34 @@ namespace WebApplication4.Migrations
 
                     b.HasIndex("CompanyId");
 
+                    b.HasIndex("VehicleTypeId");
+
                     b.ToTable("Vehicles");
+                });
+
+            modelBuilder.Entity("WebApplication4.Models.VehicleType", b =>
+                {
+                    b.Property<int>("VehicleTypeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VehicleTypeId"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("VehicleTypeId");
+
+                    b.ToTable("VehicleType");
                 });
 
             modelBuilder.Entity("WebApplication4.Models.Employee", b =>
                 {
                     b.HasOne("WebApplication4.Models.Company", "Company")
-                        .WithMany("Employees")
+                        .WithMany()
                         .HasForeignKey("CompanyId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Company");
@@ -372,109 +440,101 @@ namespace WebApplication4.Migrations
             modelBuilder.Entity("WebApplication4.Models.Haulage", b =>
                 {
                     b.HasOne("WebApplication4.Models.Employee", "Employee")
-                        .WithMany("Haulages")
+                        .WithMany()
                         .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("WebApplication4.Models.Vehicle", "Vehicle")
-                        .WithMany("Haulages")
+                    b.HasOne("WebApplication4.Models.Material", "MaterialTypee")
+                        .WithMany()
+                        .HasForeignKey("MaterialTypeematerialTypeId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("WebApplication4.Models.Vehicle", "VehicleNavigation")
+                        .WithMany()
                         .HasForeignKey("VehicleId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("WebApplication4.Models.Route", "Route")
-                        .WithMany("Haulages")
+                    b.HasOne("WebApplication4.Models.Route", "HaulagePath")
+                        .WithMany()
                         .HasForeignKey("haulagePathId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("WebApplication4.Models.Material", "Material")
-                        .WithMany("Haulages")
-                        .HasForeignKey("materialTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Employee");
 
-                    b.Navigation("Material");
+                    b.Navigation("HaulagePath");
 
-                    b.Navigation("Route");
+                    b.Navigation("MaterialTypee");
 
-                    b.Navigation("Vehicle");
+                    b.Navigation("VehicleNavigation");
                 });
 
             modelBuilder.Entity("WebApplication4.Models.Historic", b =>
                 {
                     b.HasOne("WebApplication4.Models.Employee", "Employee")
-                        .WithMany("Historics")
+                        .WithMany()
                         .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("WebApplication4.Models.TokenRegistry", "TokenRegistry")
-                        .WithMany("Historics")
+                        .WithMany()
                         .HasForeignKey("TokenRegistryId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("WebApplication4.Models.Vehicle", "Vehicle")
-                        .WithMany("Historics")
-                        .HasForeignKey("VehicleId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                    b.HasOne("WebApplication4.Models.Vehicle", "VehicleNavigation")
+                        .WithMany()
+                        .HasForeignKey("VehicleNavigationVehicleId")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("WebApplication4.Models.Shift", "Shift")
-                        .WithMany("Historics")
+                    b.HasOne("WebApplication4.Models.Shift", "WorkShift")
+                        .WithMany()
                         .HasForeignKey("WorkShiftId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("WebApplication4.Models.Route", "LoadPoint")
-                        .WithMany("loadHistorics")
-                        .HasForeignKey("loadPointId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                    b.HasOne("WebApplication4.Models.Route", "HaulagePath")
+                        .WithMany()
+                        .HasForeignKey("haulagePathId")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("WebApplication4.Models.Material", "Material")
-                        .WithMany("Historics")
+                    b.HasOne("WebApplication4.Models.Material", "MaterialType")
+                        .WithMany()
                         .HasForeignKey("materialTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("WebApplication4.Models.Route", "UnloadPoint")
-                        .WithMany("unloadHistorics")
-                        .HasForeignKey("unLoadPointId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Employee");
 
-                    b.Navigation("LoadPoint");
+                    b.Navigation("HaulagePath");
 
-                    b.Navigation("Material");
-
-                    b.Navigation("Shift");
+                    b.Navigation("MaterialType");
 
                     b.Navigation("TokenRegistry");
 
-                    b.Navigation("UnloadPoint");
+                    b.Navigation("VehicleNavigation");
 
-                    b.Navigation("Vehicle");
+                    b.Navigation("WorkShift");
                 });
 
             modelBuilder.Entity("WebApplication4.Models.ProgrammingRecord", b =>
                 {
                     b.HasOne("WebApplication4.Models.Employee", "Employee")
-                        .WithMany("ProgrammingRecords")
+                        .WithMany()
                         .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("WebApplication4.Models.Haulage", "Haulage")
-                        .WithMany("ProgrammingRecords")
-                        .HasForeignKey("HaulageId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .WithMany()
+                        .HasForeignKey("HaulageID")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Employee");
@@ -485,66 +545,20 @@ namespace WebApplication4.Migrations
             modelBuilder.Entity("WebApplication4.Models.Vehicle", b =>
                 {
                     b.HasOne("WebApplication4.Models.Company", "Company")
-                        .WithMany("Vehicles")
+                        .WithMany()
                         .HasForeignKey("CompanyId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("WebApplication4.Models.VehicleType", "VehicleType")
+                        .WithMany()
+                        .HasForeignKey("VehicleTypeId")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Company");
-                });
 
-            modelBuilder.Entity("WebApplication4.Models.Company", b =>
-                {
-                    b.Navigation("Employees");
-
-                    b.Navigation("Vehicles");
-                });
-
-            modelBuilder.Entity("WebApplication4.Models.Employee", b =>
-                {
-                    b.Navigation("Haulages");
-
-                    b.Navigation("Historics");
-
-                    b.Navigation("ProgrammingRecords");
-                });
-
-            modelBuilder.Entity("WebApplication4.Models.Haulage", b =>
-                {
-                    b.Navigation("ProgrammingRecords");
-                });
-
-            modelBuilder.Entity("WebApplication4.Models.Material", b =>
-                {
-                    b.Navigation("Haulages");
-
-                    b.Navigation("Historics");
-                });
-
-            modelBuilder.Entity("WebApplication4.Models.Route", b =>
-                {
-                    b.Navigation("Haulages");
-
-                    b.Navigation("loadHistorics");
-
-                    b.Navigation("unloadHistorics");
-                });
-
-            modelBuilder.Entity("WebApplication4.Models.Shift", b =>
-                {
-                    b.Navigation("Historics");
-                });
-
-            modelBuilder.Entity("WebApplication4.Models.TokenRegistry", b =>
-                {
-                    b.Navigation("Historics");
-                });
-
-            modelBuilder.Entity("WebApplication4.Models.Vehicle", b =>
-                {
-                    b.Navigation("Haulages");
-
-                    b.Navigation("Historics");
+                    b.Navigation("VehicleType");
                 });
 #pragma warning restore 612, 618
         }
